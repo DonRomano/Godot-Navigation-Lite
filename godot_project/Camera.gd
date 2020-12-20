@@ -9,7 +9,9 @@ func _process(_delta):
 		manage_click(staticObst)
 	if Input.is_action_just_pressed("add_dynamic"):
 		manage_click(dynamicObst)
-	
+	if Input.is_action_just_pressed("ui_accept"):
+		$"../DetourNavigation".auto_add_remove_objects = not $"../DetourNavigation".auto_add_remove_objects
+		print("Auto_add_remove_objects is now: ", $"../DetourNavigation".auto_add_remove_objects)	
 
 func manage_click(collision_template):
 	var m_pos = get_viewport().get_mouse_position()

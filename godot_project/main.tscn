@@ -429,3 +429,5 @@ hovered over them"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]

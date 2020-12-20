@@ -51,3 +51,4 @@ vsproj/gdsqlite.vcxproj.*
 
 .vscode
 .vs/*
+*.a

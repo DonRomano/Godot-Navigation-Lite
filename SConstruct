@@ -74,14 +74,20 @@ elif env['platform'] == "windows":
     env.Append(ENV=os.environ)
 
     env.Append(CPPDEFINES=['WIN32', '_WIN32', '_WINDOWS', '_CRT_SECURE_NO_WARNINGS'])
-    env.Append(CCFLAGS=['-W3', '-GR'])
+    env.Append(CCFLAGS=['-g', '-std=c++14', '-Wwrite-strings'])
+    env.Append(LINKFLAGS=[
+        '--static',
+        '-Wl,--no-undefined',
+        '-static-libgcc',
+        '-static-libstdc++',
+    ])
     if env['target'] in ('debug', 'd'):
         env.Append(CPPDEFINES=['_DEBUG'])
-        env.Append(CCFLAGS=['-EHsc', '-MDd', '-ZI'])
         env.Append(LINKFLAGS=['-DEBUG'])
     else:
         env.Append(CPPDEFINES=['NDEBUG'])
-        env.Append(CCFLAGS=['-O2', '-EHsc', '-MD'])
+        env.Append(CPPDEFINES=['-O2'])
+
 
 if env['target'] in ('debug', 'd'):
     cpp_library += '.debug'
