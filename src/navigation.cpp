@@ -682,6 +682,14 @@ int DetourNavigation::process_large_mesh(MeshInstance *mesh_instance,
 					k++;
 				}
 
+				//from Scony's fork
+				//skip empty faces
+				if (faces.size() == 0)
+				{
+					continue;
+				}
+				//end Scony's fork
+				
 				Ref<ArrayMesh> am;
 				am.instance();
 				Array arrays;
